@@ -1,10 +1,10 @@
-[index.html](https://github.com/user-attachments/files/28551719/index.html)
+[index-zahida.html](https://github.com/user-attachments/files/28552511/index-zahida.html)
 <!DOCTYPE html>
 <html lang="ru">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Для Эланы 💌</title>
+<title>Для Захиды 💌</title>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
   :root {
@@ -456,7 +456,7 @@
 
   <!-- Hero -->
   <div class="hero">
-    <div class="hero-label">Для тебя, Элана</div>
+    <div class="hero-label">Для тебя, Захида</div>
     <h1>Пойдём на<br><em>свидание?</em></h1>
     <div class="hero-sub">Выбери всё, как тебе хочется ✨</div>
   </div>
@@ -564,7 +564,7 @@
   <div class="success" id="successScreen">
     <div class="success-heart">💖</div>
     <h2>Ждём тебя!</h2>
-    <p>Элана, всё готово.<br>Он уже знает и готовится<br>к лучшему вечеру для тебя 🌹</p>
+    <p>Захида, всё готово.<br>Он уже знает и готовится<br>к лучшему вечеру для тебя 🌹</p>
   </div>
 
 </div>
@@ -667,7 +667,7 @@
     const wishes = document.getElementById('wishesInput').value.trim();
     const foods = [...selectedFoods].join(', ');
 
-    const msg = `💌 *Элана ответила на приглашение!*\n\n📅 Дата: *${selectedDate}*\n🕐 Время: *${selectedTime}*\n🍽 Кухня: *${foods}*${wishes ? `\n💬 Пожелания: _${wishes}_` : ''}\n\n_Готовься к лучшему свиданию! 🌹_`;
+    const msg = `💌 *Захида ответила на приглашение!*\n\n📅 Дата: *${selectedDate}*\n🕐 Время: *${selectedTime}*\n🍽 Кухня: *${foods}*${wishes ? `\n💬 Пожелания: _${wishes}_` : ''}\n\n_Готовься к лучшему свиданию! 🌹_`;
 
     const btn = document.getElementById('submitBtn');
     btn.disabled = true;
