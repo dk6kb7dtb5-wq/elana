@@ -1,4 +1,4 @@
-[index.html.html](https://github.com/user-attachments/files/28549283/index.html.html)
+[index.html](https://github.com/user-attachments/files/28551719/index.html)
 <!DOCTYPE html>
 <html lang="ru">
 <head>
@@ -436,8 +436,8 @@
 
 <div class="container">
 
-  <!-- Setup banner (visible until token is set) -->
-  <div class="setup-banner" id="setupBanner">
+  <!-- Setup banner -->
+  <div class="setup-banner" id="setupBanner" style="display:none">
     ⚙️ <strong>Настройка Telegram бота (2 минуты):</strong>
     <ol class="setup-steps">
       <li>Напиши <strong>@BotFather</strong> в Telegram → <code>/newbot</code> → дай имя боту</li>
@@ -571,8 +571,8 @@
 
 <script>
   // ── Config ──────────────────────────────────────────
-  let BOT_TOKEN = localStorage.getItem('tg_token') || '';
-  let CHAT_ID   = localStorage.getItem('tg_chatid') || '';
+  let BOT_TOKEN = '8816982062:AAE_BiZJKThGG5QIFaIg5MxDBqBEINEEMfg';
+  let CHAT_ID   = '530921101';
 
   function saveConfig() {
     const t = document.getElementById('inputToken').value.trim();
@@ -674,23 +674,18 @@
     btn.textContent = 'Отправляю... 💌';
 
     try {
-      const res = await fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`, {
+      const params = new URLSearchParams({ chat_id: CHAT_ID, text: msg, parse_mode: 'Markdown' });
+      await fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ chat_id: CHAT_ID, text: msg, parse_mode: 'Markdown' })
+        mode: 'no-cors',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: params
       });
-      const data = await res.json();
-      if (data.ok) {
-        document.getElementById('mainForm').style.display = 'none';
-        document.getElementById('successScreen').style.display = 'block';
-        document.getElementById('setupBanner').style.display = 'none';
-      } else {
-        showErr('Ошибка Telegram: ' + (data.description || 'проверь токен и chat_id'));
-        btn.disabled = false;
-        btn.textContent = 'Я иду на свидание! 💌';
-      }
+      document.getElementById('mainForm').style.display = 'none';
+      document.getElementById('successScreen').style.display = 'block';
+      document.getElementById('setupBanner').style.display = 'none';
     } catch (e) {
-      showErr('Ошибка сети. Проверь интернет и токен.');
+      showErr('Ошибка сети. Проверь интернет.');
       btn.disabled = false;
       btn.textContent = 'Я иду на свидание! 💌';
     }
